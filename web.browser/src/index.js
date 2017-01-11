@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import App from './containers/App';
 import MainLayout from './layouts/MainLayout';
-import WelcomeMessage from './components/WelcomeMessage';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import muiTheme from './styles/mui-theme';
@@ -18,7 +17,6 @@ ReactDOM.render(
   <MuiThemeProvider muiTheme={muiTheme}>
     <MainLayout>
       <App>
-        <WelcomeMessage />
       </App>
     </MainLayout>
   </MuiThemeProvider>,
