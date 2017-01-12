@@ -4,19 +4,37 @@ import Post from './../../components/Post';
 import * as data from '../../mock-data';
 
 class PostList extends Component {
+  constructor() {
+    super();
+    this.state = {
+      post: data.data.posts
+    }
+  }
+  handleClick(item) {
+    const newPost = this.state.post.map((popo) => {
+      if (popo.id === item.id) {
+        popo.votes +=1
+      }
+      return popo
+    })
+    this.setState({ post: newPost })
+  }
+
   render() {
     let short = data.data.posts
-    console.log(short)
     return (
       <div className={styles.postList}>
-        {short.map((yo, i) => (
+        <ul>
+          {short.map((post) => (
             <Post
-              title={yo.title}
-              key={i}
-              description={yo.description}
-              vote={0}
+              title={post.title}
+              key={post.id}
+              description={post.description}
+              vote={post.votes}
+              updateVote={this.handleClick.bind(this, post)}
               />
           ))}
+        </ul>
       </div>
     );
   }
