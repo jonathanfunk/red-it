@@ -1,8 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import styles from './styles.css'
 import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import NavigationClose from 'material-ui/svg-icons/navigation/check';
 import FlatButton from 'material-ui/FlatButton';
 
 
@@ -13,7 +11,7 @@ import FlatButton from 'material-ui/FlatButton';
 const HeaderBar = () => (
   <AppBar
     iconElementRight={
-      <div>
+      <div className={styles.nav}>
        <FlatButton label="Share a new Link" />
        <FlatButton label="Logout" />       
       </div>

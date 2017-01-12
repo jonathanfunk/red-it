@@ -1,6 +1,4 @@
-import React, { PropTypes } from 'react';
-
-import styles from './styles.css'
+import React from 'react';
 
 const Week = () => {
   return (
