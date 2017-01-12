@@ -32,6 +32,7 @@ class PostList extends Component {
               description={post.description}
               vote={post.votes}
               updateVote={this.handleClick.bind(this, post)}
+              category={post.categories.map((cat) => cat)}
               />
           ))}
         </ul>
