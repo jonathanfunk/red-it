@@ -5,10 +5,10 @@ import Categories from './../Categories'
 class App extends Component {
   render() {
     return (
-      <div className={styles.app}>
+      <section className={styles.app}>
         {this.props.children}
         <Categories />
-      </div>
+      </section>
     );
   }
 }

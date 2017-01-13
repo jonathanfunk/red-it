@@ -1,8 +1,18 @@
 import React from 'react';
-import styles from './styles.css'
 import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import FlatButton from 'material-ui/FlatButton';
 
+function handleTouchTap() {
+  alert('onTouchTap triggered on the title component');
+}
+
+const styles = {
+  title: {
+    cursor: 'pointer',
+  },
+};
 
 /**
  * This example uses an [IconButton](/#/components/icon-button) on the left, has a clickable `title`
@@ -10,14 +20,9 @@ import FlatButton from 'material-ui/FlatButton';
  */
 const HeaderBar = () => (
   <AppBar
-    iconElementRight={
-      <div className={styles.nav}>
-       <FlatButton label="Share a new Link" />
-       <FlatButton label="Logout" />       
-      </div>
-    }
+    iconElementLeft={<IconButton><NavigationClose /></IconButton>}
+    iconElementRight={<div><FlatButton label="Share a new link" /><FlatButton label="Logout" /></div>}
   />
 );
-
 
 export default HeaderBar;

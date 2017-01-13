@@ -5,7 +5,7 @@ class Welcome extends Component {
   render() {
     return (
       <div className={styles.welcome}>
-        <h2>Welcome</h2>
+        <h1>Welcome</h1>
       </div>
     );
   }
