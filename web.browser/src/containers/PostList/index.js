@@ -2,14 +2,8 @@ import React, { Component } from 'react';
 import styles from './styles.css';
 import Post from './../../components/Post';
 import FlatButton from 'material-ui/FlatButton';
+import PostToolBar from './../../components/PostToolBar'
 import * as data from '../../mock-data';
-
-const SortButtons = ({sortPopular}) => (
-  <div>
-    <FlatButton label="Newest" />
-    <FlatButton onClick={sortPopular} label="Popular" />
-  </div>
-);
 
 class PostList extends Component {
   constructor() {
@@ -19,6 +13,7 @@ class PostList extends Component {
       orderBy: "newest"
     }
     this.sortPopular = this.sortPopular.bind(this);
+    this.sortNewest = this.sortNewest.bind(this);
   }
 
   handleClick(item) {
@@ -32,19 +27,25 @@ class PostList extends Component {
   }
 
   sortPopular(){
-    const descending = (this.state.post.sort((a,b)=> b.votes - a.votes));
+    const descending = (this.state.post.sort((a,b)=> b.votes > a.votes ? 1 : -1));
+    this.setState({ post: descending, orderBy: "popular" })
+    console.log(this.state.post)
+  }
+  
+  sortNewest(){
+    const descending = (this.state.post.sort((a,b)=> b.id > a.id ? 1 : -1));
     this.setState({ post: descending,
-      orderBy: "popular"
+      orderBy: "newest"
     })
   }
 
   render() {
-    let short = data.data.posts
+    let {post, orderBy } = this.state;
     return (
       <div className={styles.postList}>
-      <SortButtons sortPopular={this.sortPopular} />
+        <PostToolBar sortNewest={this.sortNewest.bind(this, post)} sortPopular={this.sortPopular.bind(this, post)} orderBy={orderBy}/>
         <ul>
-          {short.map((post) => (
+          {post.map((post) => (
             <Post
               title={post.title}
               key={post.id}
