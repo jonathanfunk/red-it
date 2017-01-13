@@ -16,7 +16,7 @@ const Post = ({title, description, vote, updateVote, categories}) => (
       <FlatButton onClick={updateVote}>
         Vote {vote}
       </FlatButton>
-      {categories.map((category) => (<Chip>{category}</Chip>))}
+      {categories.map((category, i) => (<Chip key={i}>{category}</Chip>))}
     </Card>
   </li>
 );

@@ -3,25 +3,16 @@ import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import FlatButton from 'material-ui/FlatButton';
-
-function handleTouchTap() {
-  alert('onTouchTap triggered on the title component');
-}
-
-const styles = {
-  title: {
-    cursor: 'pointer',
-  },
-};
+//import styles from './styles.css'
 
 /**
  * This example uses an [IconButton](/#/components/icon-button) on the left, has a clickable `title`
  * through the `onTouchTap` property, and a [FlatButton](/#/components/flat-button) on the right.
  */
 const HeaderBar = () => (
-  <AppBar
+  <AppBar style={{position: 'fixed'}}
     iconElementLeft={<IconButton><NavigationClose /></IconButton>}
-    iconElementRight={<div><FlatButton label="Share a new link" /><FlatButton label="Logout" /></div>}
+    iconElementRight={<div><FlatButton label="Share a new link" style={{color: 'white'}} /><FlatButton label="Logout" style={{color: 'white'}} /></div>}
   />
 );
 
