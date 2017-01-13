@@ -29,7 +29,7 @@ class PostList extends Component {
   sortPopular(){
     const descending = (this.state.post.sort((a,b)=> b.votes > a.votes ? 1 : -1));
     this.setState({ post: descending, orderBy: "popular" })
-    console.log(this.state.post)
+    console.log(this.state.orderBy === "newest")
   }
   
   sortNewest(){
@@ -41,9 +41,18 @@ class PostList extends Component {
 
   render() {
     let {post, orderBy } = this.state;
+    const newestState = this.state.orderBy === "newest";
+    const popularState = this.state.orderBy === "popular";
+
     return (
       <div className={styles.postList}>
-        <PostToolBar sortNewest={this.sortNewest.bind(this, post)} sortPopular={this.sortPopular.bind(this, post)} orderBy={orderBy}/>
+        <PostToolBar 
+          sortNewest={this.sortNewest.bind(this, post)} 
+          sortPopular={this.sortPopular.bind(this, post)} 
+          orderBy={orderBy}
+          newStyle={this.state.orderBy === "newest" ? {backgroundColor: 'white'} : {backgroundColor: '#E8E8E8'}}
+          popularStyle={this.state.orderBy === "popular" ? {backgroundColor: 'white'} : {backgroundColor: '#E8E8E8'}}
+          />
         <ul>
           {post.map((post) => (
             <Post

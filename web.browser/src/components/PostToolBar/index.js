@@ -1,26 +1,28 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import FlatButton from 'material-ui/FlatButton';
-import IconMenu from 'material-ui/IconMenu';
-import IconButton from 'material-ui/IconButton';
-import FontIcon from 'material-ui/FontIcon';
-import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
-import MenuItem from 'material-ui/MenuItem';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import RaisedButton from 'material-ui/RaisedButton';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 
 
-const PostToolBar = ({sortNewest, sortPopular}) => (
-   <Toolbar>
-        <ToolbarGroup firstChild={true}>
-          <ToolbarTitle text="Sort" />
-        </ToolbarGroup>
-        <ToolbarGroup>
-          <ToolbarTitle text="Options" />
-          <FlatButton onClick={sortNewest} label="Newest" />
-          <FlatButton onClick={sortPopular} label="Popular"  />
-        </ToolbarGroup>
-      </Toolbar>
+const PostToolBar = ({sortNewest, sortPopular, newStyle, popularStyle}) => (
+  <Toolbar>
+    <ToolbarGroup firstChild={true} style={{ paddingLeft: '20px',}}>
+      <ToolbarTitle text="Posts" />
+    </ToolbarGroup>
+    <ToolbarGroup>
+      <ToolbarTitle text="Sort:" />
+      <FlatButton onClick={sortNewest} style={newStyle}label="Newest" />
+      <FlatButton onClick={sortPopular} style={popularStyle}label="Popular" />
+    </ToolbarGroup>
+  </Toolbar>
 );
+
+PostToolBar.propTypes = {
+  sortNewest: PropTypes.func.isRequired,
+  sortPopular: PropTypes.func.isRequired,
+  newStyle: PropTypes.object.isRequired,
+  popularStyle: PropTypes.object.isRequired,
+};
+
+
 
 export default PostToolBar
