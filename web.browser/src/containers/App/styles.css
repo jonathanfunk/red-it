@@ -2,4 +2,5 @@
   font-family: Roboto, sans-serif;
   margin-left: 256px;
   height: calc(100vh - 64px);
+  padding-top: 64px;
 }

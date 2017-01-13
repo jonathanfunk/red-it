@@ -11,10 +11,10 @@ const Post = ({title, description, vote, updateVote, categories}) => (
         <p>{description}</p>
       <div className={styles.buttons}>
         <FlatButton onClick={updateVote}>
-          Vote {vote}
+          ▴ Vote {vote}
         </FlatButton>
         <ul>
-         {categories.map((category, i) => (<li style={{display: 'inline-block', marginRight: "10px"}}><Chip key={i}>{category}</Chip></li>))}
+         {categories.map((category, i) => (<li><Chip key={i}>{category}</Chip></li>))}
         </ul>
       </div>
     </Card>
