@@ -1,3 +1,17 @@
 .post {
     margin-bottom: 20px;
 }
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons ul {
+    padding: 0;
+}
+
+.buttons li {
+    display: inline-block;
+    margin-right: 10px;
+}

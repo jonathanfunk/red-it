@@ -37,7 +37,7 @@ export const data = {
     author: 'Shawn',
     votes: 5,
     categories: [
-      'React',
+      'React','Angular'
     ],
     title: 'React ?',
     description: 'Some React resource',

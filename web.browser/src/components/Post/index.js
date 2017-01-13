@@ -6,17 +6,17 @@ import Chip from 'material-ui/Chip';
 
 const Post = ({title, description, vote, updateVote, categories}) => (
   <li className={styles.post}>
-    <Card>
-      <CardHeader>
-        <h2>{title}</h2>
-      </CardHeader>
-      <CardText>
+    <Card style={{padding: '20px'}}>
+        <h2 style={{marginTop: '0'}}>{title}</h2>
         <p>{description}</p>
-      </CardText>
-      <FlatButton onClick={updateVote}>
-        Vote {vote}
-      </FlatButton>
-      {categories.map((category, i) => (<Chip key={i}>{category}</Chip>))}
+      <div className={styles.buttons}>
+        <FlatButton onClick={updateVote}>
+          Vote {vote}
+        </FlatButton>
+        <ul>
+         {categories.map((category, i) => (<li style={{display: 'inline-block', marginRight: "10px"}}><Chip key={i}>{category}</Chip></li>))}
+        </ul>
+      </div>
     </Card>
   </li>
 );
