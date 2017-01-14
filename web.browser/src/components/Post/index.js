@@ -7,7 +7,7 @@ import Chip from 'material-ui/Chip';
 const Post = ({title, description, vote, updateVote, categories}) => (
   <li className={styles.post}>
     <Card style={{padding: '20px'}}>
-        <h2 style={{marginTop: '0'}}>{title}</h2>
+        <h3 style={{marginTop: '0'}}>{title}</h3>
         <p>{description}</p>
       <div className={styles.buttons}>
         <FlatButton onClick={updateVote}>
