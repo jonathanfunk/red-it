@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styles from './styles.css';
 import Post from './../../components/Post';
-import FlatButton from 'material-ui/FlatButton';
 import PostToolBar from './../../components/PostToolBar'
 import * as data from '../../mock-data';
 
@@ -41,8 +40,6 @@ class PostList extends Component {
 
   render() {
     let {post, orderBy } = this.state;
-    const newestState = this.state.orderBy === "newest";
-    const popularState = this.state.orderBy === "popular";
 
     return (
       <div className={styles.postList}>

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './containers/App';
 import MainLayout from './layouts/MainLayout';
-import Categories from './containers/Categories';
 import Welcome from './containers/Welcome';
 import Login from './containers/Login';
 import CreatePost from './containers/CreatePost';
@@ -13,7 +12,7 @@ import './styles/index.css';
 import {
   Router,
   Route,
-  Link,
+  //Link,
   IndexRoute,
   browserHistory
 } from 'react-router';

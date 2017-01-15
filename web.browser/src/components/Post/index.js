@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import styles from './styles.css';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Chip from 'material-ui/Chip';
 

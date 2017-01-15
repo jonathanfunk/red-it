@@ -25,8 +25,9 @@ class Categories extends Component {
             title={<span>RED it</span>}
             iconElementLeft={<IconButton><CommunicationImportContacts /></IconButton>}
             />
-          {weeks.map((x) => (
-            <Week 
+          {weeks.map((x, i) => (
+            <Week
+              key={i} 
               week={x.title}
               categories={x.categories}
             />
