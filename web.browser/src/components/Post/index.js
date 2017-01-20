@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import styles from './styles.css';
 import { Card } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
@@ -21,12 +21,12 @@ const Post = ({title, description, vote, updateVote, categories}) => (
   </li>
 );
 
-Post.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  vote: PropTypes.number.isRequired,
-  updateVote: PropTypes.func.isRequired,
-  categories: PropTypes.array.isRequired
-};
+// Post.propTypes = { , { PropTypes }
+//   title: PropTypes.string.isRequired,
+//   description: PropTypes.string.isRequired,
+//   vote: PropTypes.number.isRequired,
+//   updateVote: PropTypes.func.isRequired,
+//   categories: PropTypes.array.isRequired
+// };
 
 export default Post;
