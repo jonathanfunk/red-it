@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './styles.css';
 import Post from './../../components/Post';
-import PostToolBar from './../../components/PostToolBar'
+import PostToolBar from './../../components/PostToolBar';
 import * as data from '../../mock-data';
 
 class PostList extends Component {

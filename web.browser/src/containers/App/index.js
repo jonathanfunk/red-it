@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import styles from './styles.css'
-import Categories from './../Categories'
+import styles from './styles.css';
+import Categories from './../Categories';
 
 class App extends Component {
   render() {
