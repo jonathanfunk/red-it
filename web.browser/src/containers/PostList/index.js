@@ -9,7 +9,6 @@ import { upVote } from './../../actions/PostActions';
 class PostList extends Component {
   render() {
     const posts = this.props.posts;
-    console.log('waka', posts);
     return (
       <div className={styles.postList}>
         <PostToolBar
@@ -26,7 +25,10 @@ class PostList extends Component {
               key={parseInt(post.id, 2)}
               description={post.description}
               vote={post.votes}
-              updateVote={() => post.handleClick(post.id)}
+              updateVote={(e) => {
+                post.handleClick(post);
+                e.preventDefault();
+              }}
               categories={post.categories}
               />
           ))}
@@ -38,6 +40,7 @@ class PostList extends Component {
 
 PostList.propTypes = {
   posts: PropTypes.array.isRequired, // eslint-disable-line
+  handleClick: PropTypes.func.isRequired, // eslint-disable-line
 };
 
 const mapStateToProps = state => ({
@@ -45,8 +48,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleClick(id) {
-    dispatch(upVote(id));
+  handleClick(posts) {
+    dispatch(upVote(posts));
   },
 });
 

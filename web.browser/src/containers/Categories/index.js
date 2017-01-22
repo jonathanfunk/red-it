@@ -1,23 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Week from '../../components/Week';
 import styles from './styles.css';
 import IconButton from 'material-ui/IconButton';
 import CommunicationImportContacts from 'material-ui/svg-icons/communication/import-contacts';
-import * as data from '../../mock-data';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 
 class Categories extends Component {
-  constructor() {
-    super();
-    this.state = {
-      weeks: data.data.weeks,
-    }
-  }
-
   render() {
-    let {weeks} = this.state;
-    console.log(weeks)
+    const weeks = this.props.weeks;
+    console.log('Weeks:', weeks);
     return (
       <aside className={styles.categories}>
         <Drawer>
@@ -38,4 +31,12 @@ class Categories extends Component {
   }
 }
 
-export default Categories;
+Categories.propTypes = {
+  weeks: PropTypes.array.isRequired, // eslint-disable-line
+};
+
+const mapStateToProps = state => ({
+  weeks: state.weeks,
+});
+
+export default connect(mapStateToProps)(Categories);
