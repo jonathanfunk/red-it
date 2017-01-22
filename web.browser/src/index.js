@@ -17,7 +17,7 @@ import PostList from './containers/PostList';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import muiTheme from './styles/mui-theme';
 import './styles/index.css';
-import { upVote } from './containers/actions';
+import { upVote } from './actions/PostActions';
 
 store.dispatch(upVote(1));
 

@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import styles from './styles.css';
 import Post from './../../components/Post';
 import PostToolBar from './../../components/PostToolBar';
-import { upVote } from './../actions';
-import { bindActionCreators } from 'redux';
+import { upVote } from './../../actions/PostActions';
 
 
 class PostList extends Component {
