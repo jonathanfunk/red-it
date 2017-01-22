@@ -17,10 +17,10 @@ import PostList from './containers/PostList';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import muiTheme from './styles/mui-theme';
 import './styles/index.css';
-
 import { upVote } from './containers/actions';
 
 store.dispatch(upVote(1));
+
 
 // Needed for onTouchTap (Material UI)
 // http://stackoverflow.com/a/34015469/988941

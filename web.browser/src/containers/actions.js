@@ -25,7 +25,6 @@ export const reducer = (posts = initialPosts, action) => {
     case VOTE_UP:
       return posts.map((post) => {
         if (parseInt(post.id) !== action.payload.id) return post;
-        console.log(action.payload.id)
         return { ...post, votes: post.votes + 1 }
       });
     case SORT_POP:

@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import styles from './styles.css';
 import Post from './../../components/Post';
 import PostToolBar from './../../components/PostToolBar';
-import { connect } from 'react-redux';
 import { upVote } from './../actions';
-import * as data from '../../mock-data';
+import { bindActionCreators } from 'redux';
+
 
 class PostList extends Component {
   render() {
-    const posts = data.data.posts;
-    console.log(posts);
+    const posts = this.props.posts;
+    console.log('waka', posts);
     return (
       <div className={styles.postList}>
         <PostToolBar
@@ -20,13 +21,13 @@ class PostList extends Component {
           popularStyle={{ backgroundColor: 'white' }}
           />
         <ul>
-          {posts.map((post) => (
+          {posts.map(post => (
             <Post
               title={post.title}
-              key={post.id}
+              key={parseInt(post.id, 2)}
               description={post.description}
               vote={post.votes}
-              updateVote={console.log('Newest')}
+              updateVote={() => post.handleClick(post.id)}
               categories={post.categories}
               />
           ))}
@@ -36,14 +37,19 @@ class PostList extends Component {
   }
 }
 
+PostList.propTypes = {
+  posts: PropTypes.array.isRequired, // eslint-disable-line
+};
+
 const mapStateToProps = state => ({
-  post: state.post,
+  posts: state.posts,
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleClick: (students) => {
-    dispatch(upVote(students));
+  handleClick(id) {
+    dispatch(upVote(id));
   },
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostList);
