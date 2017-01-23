@@ -13,5 +13,5 @@ export const sortPop = () => ({
 export const SORT_NEW = 'SORT_NEW';
 export const sortNew = () => ({
   type: SORT_NEW,
-  payload: {}, 
+  payload: {},
 });

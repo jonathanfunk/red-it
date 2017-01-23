@@ -3,17 +3,18 @@ import { connect } from 'react-redux';
 import styles from './styles.css';
 import Post from './../../components/Post';
 import PostToolBar from './../../components/PostToolBar';
-import { upVote } from './../../actions/PostActions';
+import { upVote, sortPop, sortNew } from './../../actions/PostActions';
 
 
 class PostList extends Component {
+
   render() {
     const posts = this.props.posts;
     return (
       <div className={styles.postList}>
         <PostToolBar
-          sortNewest={console.log('Newest')}
-          sortPopular={console.log('Popular')}
+          sortNewest={this.props.handleClickNew}
+          sortPopular={this.props.handleClickPop}
           orderBy={console.log("Hello!")}
           newStyle={{ backgroundColor: 'white' }}
           popularStyle={{ backgroundColor: 'white' }}
@@ -25,12 +26,9 @@ class PostList extends Component {
               key={parseInt(post.id, 2)}
               description={post.description}
               vote={post.votes}
-              updateVote={(e) => {
-                post.handleClick(post);
-                e.preventDefault();
-              }}
+              updateVote={this.props.handleClickVote}
               categories={post.categories}
-              />
+            />
           ))}
         </ul>
       </div>
@@ -40,7 +38,9 @@ class PostList extends Component {
 
 PostList.propTypes = {
   posts: PropTypes.array.isRequired, // eslint-disable-line
-  handleClick: PropTypes.func.isRequired, // eslint-disable-line
+  handleClickVote: PropTypes.func.isRequired, // eslint-disable-line
+  handleClickNew: PropTypes.func.isRequired, // eslint-disable-line
+  handleClickPop: PropTypes.func.isRequired // eslint-disable-line
 };
 
 const mapStateToProps = state => ({
@@ -48,10 +48,15 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleClick(posts) {
-    dispatch(upVote(posts));
+  handleClickVote: (id) => {
+    dispatch(upVote(id));
+  },
+  handleClickPop: () => {
+    dispatch(sortPop());
+  },
+  handleClickNew: () => {
+    dispatch(sortNew());
   },
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostList);

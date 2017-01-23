@@ -4,13 +4,14 @@ import { Card } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Chip from 'material-ui/Chip';
 
+
 const Post = ({ title, description, vote, updateVote, categories }) => (
   <li className={styles.post}>
     <Card style={{ padding: '20px' }}>
       <h3 style={{ marginTop: '0' }}>{title}</h3>
       <p>{description}</p>
       <div className={styles.buttons}>
-        <FlatButton onClick={updateVote}>
+        <FlatButton onClick={(e) => { e.preventDefault(); updateVote(); }}>
           ▴ Vote {vote}
         </FlatButton>
         <ul>

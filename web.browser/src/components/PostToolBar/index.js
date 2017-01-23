@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 
 
-const PostToolBar = ({sortNewest, sortPopular, newStyle, popularStyle}) => (
+const PostToolBar = ({sortNewest, sortPopular, popularStyle, newStyle }) => (
   <Toolbar>
     <ToolbarGroup firstChild={true} style={{ paddingLeft: '20px',}}>
       <ToolbarTitle text="Posts" />
@@ -16,13 +16,13 @@ const PostToolBar = ({sortNewest, sortPopular, newStyle, popularStyle}) => (
   </Toolbar>
 );
 
-// PostToolBar.propTypes = { { PropTypes }
-//   sortNewest: PropTypes.func.isRequired,
-//   sortPopular: PropTypes.func.isRequired,
-//   newStyle: PropTypes.object.isRequired,
-//   popularStyle: PropTypes.object.isRequired,
-// };
+PostToolBar.propTypes = {
+  sortNewest: PropTypes.func.isRequired,
+  sortPopular: PropTypes.func.isRequired,
+  newStyle: PropTypes.object.isRequired,
+  popularStyle: PropTypes.object.isRequired,
+};
 
 
 
-export default PostToolBar
+export default PostToolBar;
