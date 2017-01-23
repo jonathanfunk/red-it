@@ -1,7 +1,20 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { postReducer } from './../reducers/PostsReducer';
 import { weekReducer } from './../reducers/WeeksReducer';
+
+const actionLogger = theStore => next => (action) => {
+  let result;
+  console.info('DISPATCHING', action);
+  try {
+    result = next(action);
+    console.info('NEXT STATE', theStore.getState());
+  } catch (e) {
+    console.warn('There was an error', e);
+    throw e;
+  }
+  return result;
+};
 
 
 export default createStore(
@@ -9,5 +22,7 @@ export default createStore(
     posts: postReducer,
     weeks: weekReducer,
   }),
-  composeWithDevTools(),
+  composeWithDevTools(
+    applyMiddleware(actionLogger),
+  ),
 );

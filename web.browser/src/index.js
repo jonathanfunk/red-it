@@ -28,8 +28,6 @@ store.dispatch(upVote(0));
 store.dispatch(upVote(0));
 store.dispatch(upVote(0));
 
-console.log(store.dispatch(upVote(0)))
-
 // Needed for onTouchTap (Material UI)
 // http://stackoverflow.com/a/34015469/988941
 import injectTapEventPlugin from 'react-tap-event-plugin';

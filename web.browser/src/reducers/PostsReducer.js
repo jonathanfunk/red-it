@@ -7,7 +7,7 @@ export const postReducer = (posts = initialPosts, action) => {
   switch (action.type) {
     case VOTE_UP:
       return posts.map((post) => {
-        if (parseInt(post.id) !== action.payload.id) return post;
+        if (parseInt(post.id, 2) !== action.payload.id) return post;
         return { ...post, votes: post.votes + 1 }
       });
     case SORT_POP:
@@ -18,3 +18,4 @@ export const postReducer = (posts = initialPosts, action) => {
       return posts;
   }
 };
+

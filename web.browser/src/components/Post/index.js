@@ -11,11 +11,11 @@ const Post = ({ title, description, vote, updateVote, categories }) => (
       <h3 style={{ marginTop: '0' }}>{title}</h3>
       <p>{description}</p>
       <div className={styles.buttons}>
-        <FlatButton onClick={(e) => { e.preventDefault(); updateVote(); }}>
+        <FlatButton onClick={updateVote}>
           ▴ Vote {vote}
         </FlatButton>
         <ul>
-          {categories.map(category => (<li><Chip key={category}>{category}</Chip></li>))}
+          {categories.map(category => (<li key={category}><Chip>{category}</Chip></li>))}
         </ul>
       </div>
     </Card>
