@@ -26,8 +26,9 @@ class PostList extends Component {
               key={parseInt(post.id, 2)}
               description={post.description}
               vote={post.votes}
-              updateVote={this.props.handleClickVote}
+              upVote={this.props.handleClickVote}
               categories={post.categories}
+              id={post.id}
             />
           ))}
         </ul>

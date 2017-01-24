@@ -7,13 +7,13 @@ export const postReducer = (posts = initialPosts, action) => {
   switch (action.type) {
     case VOTE_UP:
       return posts.map((post) => {
-        if (parseInt(post.id, 2) !== action.payload.id) return post;
-        return { ...post, votes: post.votes + 1 }
+        if (post.id !== action.payload.id) return post;
+        return { ...post, votes: post.votes + 1 };
       });
     case SORT_POP:
-      return posts.sort((a, b) => b.votes > a.votes ? 1 : -1);
+      return posts.slice().sort((a, b) => b.votes > a.votes ? 1 : -1);
     case SORT_NEW:
-      return posts.sort((a, b) => b.id > a.id ? 1 : -1);
+      return posts.slice().sort((a, b) => b.id > a.id ? 1 : -1);
     default:
       return posts;
   }
