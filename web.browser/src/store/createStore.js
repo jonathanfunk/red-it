@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { postReducer } from './../reducers/PostsReducer';
 import { weekReducer } from './../reducers/WeeksReducer';
+import { filterReducer } from './../reducers/FiltersReducer';
 
 const actionLogger = theStore => next => (action) => {
   let result;
@@ -21,6 +22,7 @@ export default createStore(
   combineReducers({
     posts: postReducer,
     weeks: weekReducer,
+    filter: filterReducer,
   }),
   composeWithDevTools(
     applyMiddleware(actionLogger),

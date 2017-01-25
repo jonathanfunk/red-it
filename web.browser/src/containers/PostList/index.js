@@ -10,6 +10,8 @@ class PostList extends Component {
 
   render() {
     const posts = this.props.posts;
+    const filter = this.props.filter;
+    console.log(filter);
     return (
       <div className={styles.postList}>
         <PostToolBar
@@ -20,7 +22,9 @@ class PostList extends Component {
           popularStyle={{ backgroundColor: 'white' }}
           />
         <ul>
-          {posts.map(post => (
+          {posts
+            .filter(post => post.categories.includes(filter))
+            .map(post => (
             <Post
               title={post.title}
               key={parseInt(post.id, 2)}
@@ -39,6 +43,7 @@ class PostList extends Component {
 
 PostList.propTypes = {
   posts: PropTypes.array.isRequired, // eslint-disable-line
+  filter: PropTypes.string.isRequired, // eslint-disable-line
   handleClickVote: PropTypes.func.isRequired, // eslint-disable-line
   handleClickNew: PropTypes.func.isRequired, // eslint-disable-line
   handleClickPop: PropTypes.func.isRequired // eslint-disable-line
@@ -46,6 +51,7 @@ PostList.propTypes = {
 
 const mapStateToProps = state => ({
   posts: state.posts,
+  filter: state.filter,
 });
 
 const mapDispatchToProps = dispatch => ({

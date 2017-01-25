@@ -10,7 +10,6 @@ import Drawer from 'material-ui/Drawer';
 class Categories extends Component {
   render() {
     const weeks = this.props.weeks;
-    console.log('Weeks:', weeks);
     return (
       <aside className={styles.categories}>
         <Drawer>

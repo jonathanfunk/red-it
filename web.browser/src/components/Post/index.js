@@ -11,7 +11,7 @@ const Post = ({ title, description, vote, upVote, categories, id }) => (
       <h3 style={{ marginTop: '0' }}>{title}</h3>
       <p>{description}</p>
       <div className={styles.buttons}>
-        <FlatButton onClick={(e) => { e.preventDefault(); upVote(id); }}>
+        <FlatButton onClick={() => upVote(id)}>
           ▴ Vote {vote}
         </FlatButton>
         <ul>
