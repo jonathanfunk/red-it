@@ -7,11 +7,11 @@ export const upVote = id => ({
 export const SORT_POP = 'SORT_POP';
 export const sortPop = () => ({
   type: SORT_POP,
-  payload: {},
+  payload: null,
 });
 
 export const SORT_NEW = 'SORT_NEW';
 export const sortNew = () => ({
   type: SORT_NEW,
-  payload: {},
+  payload: null,
 });
