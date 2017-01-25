@@ -11,7 +11,6 @@ class PostList extends Component {
   render() {
     const posts = this.props.posts;
     const filter = this.props.filter;
-    console.log(filter);
     return (
       <div className={styles.postList}>
         <PostToolBar

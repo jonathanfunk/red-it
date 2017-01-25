@@ -10,6 +10,8 @@ import Drawer from 'material-ui/Drawer';
 class Categories extends Component {
   render() {
     const weeks = this.props.weeks;
+    const filter = this.props.filter;
+    console.log(filter);
     return (
       <aside className={styles.categories}>
         <Drawer>
@@ -32,10 +34,12 @@ class Categories extends Component {
 
 Categories.propTypes = {
   weeks: PropTypes.array.isRequired, // eslint-disable-line
+  filter: PropTypes.string.isRequired, // eslint-disable-line
 };
 
 const mapStateToProps = state => ({
   weeks: state.weeks,
+  filter: state.filter,
 });
 
 export default connect(mapStateToProps)(Categories);
