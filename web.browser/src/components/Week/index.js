@@ -16,7 +16,7 @@ const Week = ({ week, categories }) => {
       <Divider />
     </div>
   );
-}
+};
 
 Week.propTypes = {
   week: PropTypes.string.isRequired,

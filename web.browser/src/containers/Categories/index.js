@@ -33,8 +33,8 @@ class Categories extends Component {
 }
 
 Categories.propTypes = {
-  weeks: PropTypes.array.isRequired, // eslint-disable-line
-  filter: PropTypes.string.isRequired, // eslint-disable-line
+  weeks: PropTypes.array.isRequired,
+  filter: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({

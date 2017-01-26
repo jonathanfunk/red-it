@@ -41,11 +41,11 @@ class PostList extends Component {
 }
 
 PostList.propTypes = {
-  posts: PropTypes.array.isRequired, // eslint-disable-line
-  filter: PropTypes.string.isRequired, // eslint-disable-line
-  handleClickVote: PropTypes.func.isRequired, // eslint-disable-line
-  handleClickNew: PropTypes.func.isRequired, // eslint-disable-line
-  handleClickPop: PropTypes.func.isRequired // eslint-disable-line
+  posts: PropTypes.array.isRequired,
+  filter: PropTypes.string.isRequired,
+  handleClickVote: PropTypes.func.isRequired,
+  handleClickNew: PropTypes.func.isRequired,
+  handleClickPop: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

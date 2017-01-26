@@ -23,12 +23,12 @@ const Post = ({ title, description, vote, upVote, categories, id }) => (
 );
 
 Post.propTypes = {
-  title: PropTypes.string.isRequired, // eslint-disable-line
-  description: PropTypes.string.isRequired, // eslint-disable-line
-  vote: PropTypes.number.isRequired, // eslint-disable-line
-  upVote: PropTypes.func.isRequired, // eslint-disable-line
-  categories: PropTypes.array.isRequired, // eslint-disable-line
-  id: PropTypes.string.isRequired, // eslint-disable-line
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  vote: PropTypes.number.isRequired,
+  upVote: PropTypes.func.isRequired,
+  categories: PropTypes.array.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default Post;
