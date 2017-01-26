@@ -4,9 +4,9 @@ export const upVote = id => ({
   payload: { id },
 });
 
-export const SORT_POP = 'SORT_POP';
+export const SORT_POPULAR = 'SORT_POPULAR';
 export const sortPop = () => ({
-  type: SORT_POP,
+  type: SORT_POPULAR,
   payload: null,
 });
 
