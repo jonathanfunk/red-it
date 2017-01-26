@@ -6,6 +6,7 @@ import Drawer from 'material-ui/Drawer';
 import { connect } from 'react-redux';
 import Week from '../../components/Week';
 import styles from './styles.css';
+import filterCategory from './../../actions/FilterActions';
 
 class Categories extends Component {
   render() {
@@ -24,6 +25,7 @@ class Categories extends Component {
               key={i} 
               week={week.title}
               categories={week.categories}
+              filterClick={this.props.handleFilterCategory}
             />
           ))}
         </Drawer>
@@ -35,6 +37,8 @@ class Categories extends Component {
 Categories.propTypes = {
   weeks: PropTypes.array.isRequired,
   filter: PropTypes.string.isRequired,
+  categories: PropTypes.array.isRequired,
+  handleFilterCategory: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -42,4 +46,10 @@ const mapStateToProps = state => ({
   filter: state.filter,
 });
 
-export default connect(mapStateToProps)(Categories);
+const mapDispatchToProps = dispatch => ({
+  handleFilterCategory: (category) => {
+    dispatch(filterCategory(category));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories);

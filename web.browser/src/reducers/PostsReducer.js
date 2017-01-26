@@ -13,7 +13,7 @@ export const postReducer = (posts = initialPosts, action) => {
     case SORT_POPULAR:
       return [...posts].sort((a, b) => b.votes > a.votes ? 1 : -1);
     case SORT_NEW:
-      return [...posts].slice().sort((a, b) => b.id > a.id ? 1 : -1);
+      return [...posts].sort((a, b) => b.id > a.id ? 1 : -1);
     default:
       return posts;
   }
