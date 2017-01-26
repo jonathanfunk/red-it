@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import Week from '../../components/Week';
-import styles from './styles.css';
 import IconButton from 'material-ui/IconButton';
 import CommunicationImportContacts from 'material-ui/svg-icons/communication/import-contacts';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
+import { connect } from 'react-redux';
+import Week from '../../components/Week';
+import styles from './styles.css';
 
 class Categories extends Component {
   render() {

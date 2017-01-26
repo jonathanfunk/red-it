@@ -24,16 +24,16 @@ class PostList extends Component {
           {posts
             .filter(post => post.categories.includes(filter))
             .map(post => (
-            <Post
-              title={post.title}
-              key={parseInt(post.id, 2)}
-              description={post.description}
-              vote={post.votes}
-              upVote={this.props.handleClickVote}
-              categories={post.categories}
-              id={post.id}
-            />
-          ))}
+              <Post
+                title={post.title}
+                key={parseInt(post.id, 2)}
+                description={post.description}
+                vote={post.votes}
+                upVote={this.props.handleClickVote}
+                categories={post.categories}
+                id={post.id}
+              />
+            ))}
         </ul>
       </div>
     );

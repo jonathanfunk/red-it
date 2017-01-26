@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import {List, ListItem } from 'material-ui/List';
+import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 
@@ -8,7 +8,10 @@ const Week = ({ week, categories }) => {
     <div>
       <List>
         <Subheader>{week}</Subheader>
-        {categories.map((x, i) => (<ListItem key={i} primaryText={x} />))}
+        {categories.map((category, i) => (
+          <ListItem key={i} primaryText={category} />
+          ))
+        }
       </List>
       <Divider />
     </div>

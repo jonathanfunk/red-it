@@ -5,13 +5,21 @@ import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 
 const PostToolBar = ({sortNewest, sortPopular, popularStyle, newStyle }) => (
   <Toolbar>
-    <ToolbarGroup firstChild={true} style={{ paddingLeft: '20px',}}>
+    <ToolbarGroup firstChild={true} style={{ paddingLeft: '20px' }}>
       <ToolbarTitle text="Posts" />
     </ToolbarGroup>
     <ToolbarGroup>
       <ToolbarTitle text="Sort:" />
-      <FlatButton onClick={sortNewest} style={newStyle}label="Newest" />
-      <FlatButton onClick={sortPopular} style={popularStyle}label="Popular" />
+      <FlatButton 
+        onClick={sortNewest}
+        style={newStyle}
+        label="Newest"
+      />
+      <FlatButton 
+        onClick={sortPopular}
+        style={popularStyle}
+        label="Popular"
+      />
     </ToolbarGroup>
   </Toolbar>
 );

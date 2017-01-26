@@ -7,7 +7,7 @@ import FlatButton from 'material-ui/FlatButton';
 const HeaderBar = () => (
   <AppBar
     style={{
-      position: 'fixed'
+      position: 'fixed',
     }}
     iconElementLeft={
       <IconButton>
@@ -16,8 +16,18 @@ const HeaderBar = () => (
     }
     iconElementRight={
       <div>
-        <FlatButton label="Share a new link" style={{ color: 'white' }} />
-        <FlatButton label="Logout" style={{ color: 'white' }} />
+        <FlatButton
+          label="Share a new link" 
+          style={{
+            color: 'white',
+          }}
+        />
+        <FlatButton
+          label="Logout"
+          style={{
+            color: 'white',
+          }}
+        />
       </div>
     }
   />
