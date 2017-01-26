@@ -19,11 +19,11 @@ class Categories extends Component {
             title={<span>RED it</span>}
             iconElementLeft={<IconButton><CommunicationImportContacts /></IconButton>}
             />
-          {weeks.map((x, i) => (
+          {weeks.map((week, i) => (
             <Week
               key={i} 
-              week={x.title}
-              categories={x.categories}
+              week={week.title}
+              categories={week.categories}
             />
           ))}
         </Drawer>

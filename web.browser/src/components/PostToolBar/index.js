@@ -3,19 +3,19 @@ import FlatButton from 'material-ui/FlatButton';
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 
 
-const PostToolBar = ({sortNewest, sortPopular, popularStyle, newStyle }) => (
+const PostToolBar = ({ sortNewest, sortPopular, popularStyle, newStyle }) => (
   <Toolbar>
     <ToolbarGroup firstChild={true} style={{ paddingLeft: '20px' }}>
       <ToolbarTitle text="Posts" />
     </ToolbarGroup>
     <ToolbarGroup>
       <ToolbarTitle text="Sort:" />
-      <FlatButton 
+      <FlatButton
         onClick={sortNewest}
         style={newStyle}
         label="Newest"
       />
-      <FlatButton 
+      <FlatButton
         onClick={sortPopular}
         style={popularStyle}
         label="Popular"
@@ -30,7 +30,5 @@ PostToolBar.propTypes = {
   newStyle: PropTypes.object.isRequired,
   popularStyle: PropTypes.object.isRequired,
 };
-
-
 
 export default PostToolBar;
