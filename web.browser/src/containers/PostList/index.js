@@ -11,7 +11,8 @@ class PostList extends Component {
 
   componentWillMount() {
     const url = 'http://localhost:8000/posts';
-    getJson(url);
+    const huh = getJson(url);
+    console.log('Posts:', huh);
   }
 
   render() {
