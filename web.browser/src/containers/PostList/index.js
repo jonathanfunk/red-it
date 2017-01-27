@@ -4,9 +4,15 @@ import styles from './styles.css';
 import Post from './../../components/Post';
 import PostToolBar from './../../components/PostToolBar';
 import { upVote, sortPop, sortNew } from './../../actions/PostActions';
+import { getJson } from './../../lib/fetch-json';
 
 
 class PostList extends Component {
+
+  componentWillMount() {
+    const url = 'http://localhost:8000/posts';
+    getJson(url);
+  }
 
   render() {
     const posts = this.props.posts;

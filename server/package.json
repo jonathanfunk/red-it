@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:debug": "NODE_ENV=production nodemon --debug index.js"
+    "start:debug": "NODE_ENV=production nodemon --debug index.js",
+    "start-server": "nodemon index.js"
   },
   "keywords": [],
   "author": "MK <mackenzie@redacademy.com> (http://mackenziekieran.com)",
@@ -19,6 +20,8 @@
     "babel-register": "^6.18.0",
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.8.0"
   }

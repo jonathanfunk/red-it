@@ -1,0 +1,54 @@
+{
+  "weeks": [
+    {
+      "id": "0",
+      "title": "Week1",
+      "categories": [
+        "React",
+        "React-Router"
+      ]
+    },
+    {
+      "id": "1",
+      "title": "Week2",
+      "categories": [
+        "Redux",
+        "FunctionalProgramming"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Week3",
+      "categories": [
+        "Node",
+        "Express",
+        "Async"
+      ]
+    }
+  ],
+  "posts": [
+    {
+      "id": "0",
+      "author": "Mackenzie",
+      "votes": 0,
+      "categories": [
+        "React"
+      ],
+      "title": "React!!!!",
+      "description": "SomeReactresource",
+      "link": "//github.com/react"
+    },
+    {
+      "id": "1",
+      "author": "Shawn",
+      "votes": 5,
+      "categories": [
+        "React",
+        "Angular"
+      ],
+      "title": "React?",
+      "description": "SomeReactresource",
+      "link": "//github.com/react"
+    }
+  ]
+}
