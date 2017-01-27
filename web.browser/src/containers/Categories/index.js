@@ -7,8 +7,16 @@ import { connect } from 'react-redux';
 import Week from '../../components/Week';
 import styles from './styles.css';
 import filterCategory from './../../actions/FilterActions';
+import { getJson } from './../../lib/fetch-json';
+
 
 class Categories extends Component {
+
+  componentWillMount() {
+    const url = 'http://localhost:8000/weeks';
+    getJson(url);
+  }
+
   render() {
     const weeks = this.props.weeks;
     const filter = this.props.filter;

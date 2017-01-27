@@ -5,6 +5,9 @@ const config = require('../config')
 const jsonData = require('./database/mock-data.json')
 const app = express();
 const root = resolve(process.cwd(), config.get('STATIC_PATH'));
+const cors = require('cors')
+const bodyParser = require('body-parser')
+
 
 const logger = (req, res, next) => {
   console.log('Logging...');
@@ -12,6 +15,8 @@ const logger = (req, res, next) => {
 }
 
 app.use(logger);
+app.use(cors());
+app.use(bodyParser.json());
 
 app.get('/weeks', (req, res) => {
     res.json(jsonData.weeks);

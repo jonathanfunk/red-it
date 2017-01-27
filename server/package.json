@@ -11,6 +11,8 @@
   "author": "MK <mackenzie@redacademy.com> (http://mackenziekieran.com)",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.16.0",
+    "cors": "^2.8.1",
     "express": "^4.14.0",
     "express-history-api-fallback": "^2.1.0",
     "nconf": "^0.8.4"

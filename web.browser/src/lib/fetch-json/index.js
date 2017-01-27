@@ -1,3 +1,11 @@
+const createErrorContext = (url, params) => {
+  return {
+    name: 'FetchJsonError',
+    url,
+    params,
+  };
+};
+
 const fetchJson = (url, params = { method: 'GET' }) => {
   const headers = { 'Content-Type': 'application/json; charset' }
   return fetch(url, Object.assign(headers)).then(res => {
@@ -9,14 +17,6 @@ const fetchJson = (url, params = { method: 'GET' }) => {
 const requestJson = (url, body, method) => (
   fetchJson(url, { method, body })
 )
-
-const createErrorContext = (url, params) => {
-  return {
-    name: 'FetchJsonError',
-    url,
-    params,
-  };
-};
 
 //API of our library
 const getJson = fetchJson;
