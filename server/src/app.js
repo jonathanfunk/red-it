@@ -8,7 +8,6 @@ const root = resolve(process.cwd(), config.get('STATIC_PATH'));
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
-
 const logger = (req, res, next) => {
   console.log('Logging...');
   next();
@@ -40,9 +39,5 @@ app.use((req, res, next) => {
   res.status(404).send('Page not found...');
   next();
 });
-
-app.post('/', (req, res) => {
-    res.send("Is it working?")
-})
 
 module.exports = app;

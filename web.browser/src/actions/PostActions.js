@@ -1,3 +1,18 @@
+import { getJson } from '../lib/fetch-json';
+
+//Post Load
+export const UPDATE_POSTS = 'UPDATE_POSTS';
+export const updatePosts = posts => ({ type: UPDATE_POSTS, payload: posts });
+
+export const fetchPosts = () => {
+  return (dispatch) => {
+    getJson('http://localhost:8000/posts').then((response) => {
+      dispatch(updatePosts(response));
+    });
+  };
+};
+
+//Post manipulation
 export const VOTE_UP = 'VOTE_UP';
 export const upVote = id => ({
   type: VOTE_UP,

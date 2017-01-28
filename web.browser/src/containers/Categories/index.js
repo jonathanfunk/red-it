@@ -14,8 +14,7 @@ class Categories extends Component {
 
   componentWillMount() {
     const url = 'http://localhost:8000/weeks';
-    const huh = getJson(url);
-    console.log('Weeks:', huh)
+    getJson(url).then(weeks => weeks);
   }
 
   render() {
