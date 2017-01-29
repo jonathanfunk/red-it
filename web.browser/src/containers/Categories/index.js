@@ -19,7 +19,6 @@ class Categories extends Component {
   render() {
     const weeks = this.props.weeks;
     const filter = this.props.filter;
-    console.log(filter);
     return (
       <aside className={styles.categories}>
         <Drawer>
@@ -29,7 +28,7 @@ class Categories extends Component {
             />
           {weeks.map((week, i) => (
             <Week
-              key={i} 
+              key={week.i} 
               week={week.title}
               categories={week.categories}
               filterClick={this.props.handleFilterCategory}
