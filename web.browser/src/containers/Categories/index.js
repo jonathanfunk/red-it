@@ -43,7 +43,7 @@ class Categories extends Component {
 Categories.propTypes = {
   weeks: PropTypes.array.isRequired,
   filter: PropTypes.string.isRequired,
-  categories: PropTypes.array.isRequired,
+  //categories: PropTypes.array.isRequired,
   handleFilterCategory: PropTypes.func.isRequired,
 };
 
