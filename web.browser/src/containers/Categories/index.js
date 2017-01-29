@@ -6,15 +6,14 @@ import Drawer from 'material-ui/Drawer';
 import { connect } from 'react-redux';
 import Week from '../../components/Week';
 import styles from './styles.css';
-import filterCategory from './../../actions/FilterActions';
-import { getJson } from './../../lib/fetch-json';
+import { filterCategory } from './../../actions/FilterActions';
+import { fetchWeeks } from './../../actions/WeekActions';
 
 
 class Categories extends Component {
 
   componentWillMount() {
-    const url = 'http://localhost:8000/weeks';
-    getJson(url).then(weeks => weeks);
+    this.props.fetchWeeks();
   }
 
   render() {
@@ -57,6 +56,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   handleFilterCategory: (category) => {
     dispatch(filterCategory(category));
+  },
+  fetchWeeks: () => {
+    dispatch(fetchWeeks());
   },
 });
 

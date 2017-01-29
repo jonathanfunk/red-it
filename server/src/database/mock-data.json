@@ -13,7 +13,7 @@
       "title": "Week2",
       "categories": [
         "Redux",
-        "FunctionalProgramming"
+        "Functional Programming"
       ]
     },
     {
@@ -35,7 +35,7 @@
         "React"
       ],
       "title": "React!!!!",
-      "description": "SomeReactresource",
+      "description": "Some React resource",
       "link": "//github.com/react"
     },
     {
@@ -47,7 +47,7 @@
         "Angular"
       ],
       "title": "React?",
-      "description": "SomeReactresource",
+      "description": "Some React resource",
       "link": "//github.com/react"
     }
   ]

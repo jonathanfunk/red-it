@@ -1,10 +1,10 @@
-import * as data from '../mock-data';
+import { UPDATE_WEEKS } from '../actions/WeekActions';
 
-const initialWeeks = data.data.weeks;
-
-export const weekReducer = (weeks = initialWeeks, action) => {
+export const weekReducer = (state = [], action) => {
   switch (action.type) {
+    case UPDATE_WEEKS:
+      return [...state, ...action.payload];
     default:
-      return weeks;
+      return state;
   }
 };

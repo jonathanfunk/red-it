@@ -1,12 +1,12 @@
 import { FILTER } from './../actions/FilterActions';
 
-const initialFilter = 'React';
+const initialState = 'React';
 
-export const filterReducer = (filter = initialFilter, action) => {
+export const filterReducer = (state = initialState, action) => {
   switch (action.type) {
     case FILTER:
-      return action.payload;
+      return action.payload.category;
     default:
-      return filter;
+      return state;
   }
 };
