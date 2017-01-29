@@ -1,29 +1,41 @@
 import React from 'react';
-//import styles from './styles.css';
+import styles from './styles.css';
 import TextField from 'material-ui/TextField';
+import { Card } from 'material-ui/Card';
+import { Toolbar, ToolbarTitle } from 'material-ui/Toolbar';
+import FlatButton from 'material-ui/FlatButton';
 
 const Login = () => (
-  <div>
-    <TextField
-      hintText="Hint Text"
-      errorText="This field is required"
-    /><br />
-    <TextField
-      hintText="Hint Text"
-      errorText="The error text can be as long as you want, it will wrap."
-    /><br />
-    <TextField
-      hintText="Hint Text"
-      errorText="This field is required"
-      floatingLabelText="Floating Label Text"
-    /><br />
-    <TextField
-      hintText="Message Field"
-      errorText="This field is required."
-      floatingLabelText="MultiLine and FloatingLabel"
-      multiLine={true}
-      rows={2}
-    /><br />
+  <div className={styles.login}>
+    <Card style={{ width: '500px' }}>
+      <Toolbar>
+        <ToolbarTitle text="Login" />
+      </Toolbar>
+      <form>
+        <TextField
+          style={{ width: '100%' }}
+          hintText="Email"
+          errorText="Please enter your email"
+          floatingLabelText="Email"
+          />
+        <TextField
+          style={{ width: '100%' }}
+          hintText="Password"
+          errorText="Please enter your password"
+          floatingLabelText="Password"
+          />
+        <FlatButton
+          style={{ 
+            backgroundColor: 'red',
+            color: 'white',
+          }}
+          label="Login"
+          />
+        <FlatButton
+          label="Signup"
+          />
+      </form>
+    </Card>
   </div>
 );
 
