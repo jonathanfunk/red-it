@@ -11,16 +11,17 @@ const Week = ({ week, categories, filterClick }) => {
       <List>
         <Subheader>{week}</Subheader>
         {categories.map((category, i) => (
-          <Link
-            to={`/posts/${slug(category, { lower: true })}`}
-            style={{ textDecoration: 'none' }}
-            key={category.i}
-          >
-            <ListItem
-              primaryText={category}
-              onClick={() => filterClick(category)}
-              />
-          </Link>
+          <div key={i}>
+            <Link
+              to={`/posts/${slug(category, { lower: true })}`}
+              style={{ textDecoration: 'none' }}
+            >
+              <ListItem
+                primaryText={category}
+                onClick={() => filterClick(category)}
+                />
+            </Link>
+          </div>
         ))
         }
       </List>
