@@ -18,7 +18,6 @@ class Categories extends Component {
 
   render() {
     const weeks = this.props.weeks;
-    const filter = this.props.filter;
     return (
       <aside className={styles.categories}>
         <Drawer>
@@ -26,9 +25,9 @@ class Categories extends Component {
             title={<span>RED it</span>}
             iconElementLeft={<IconButton><CommunicationImportContacts /></IconButton>}
             />
-          {weeks.map((week, i) => (
+          {weeks.map((week) => (
             <Week
-              key={week.i} 
+              key={parseInt(week.id, 2)} 
               week={week.title}
               categories={week.categories}
               filterClick={this.props.handleFilterCategory}
@@ -43,7 +42,6 @@ class Categories extends Component {
 Categories.propTypes = {
   weeks: PropTypes.array.isRequired,
   filter: PropTypes.string.isRequired,
-  //categories: PropTypes.array.isRequired,
   handleFilterCategory: PropTypes.func.isRequired,
 };
 

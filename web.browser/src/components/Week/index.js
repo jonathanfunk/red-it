@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import slug from 'slug';
 import { Link } from 'react-router';
 import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
@@ -11,7 +12,7 @@ const Week = ({ week, categories, filterClick }) => {
         <Subheader>{week}</Subheader>
         {categories.map((category, i) => (
           <Link
-            to={`/posts/${category}`}
+            to={`/posts/${slug(category, { lower: true })}`}
             style={{ textDecoration: 'none' }}
             key={category.i}
           >
