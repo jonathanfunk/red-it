@@ -28,7 +28,6 @@ class Login extends Gandalf {
         debounce: 300,
       },
     };
-
     super(fields);
   }
 
@@ -48,7 +47,7 @@ class Login extends Gandalf {
           <Toolbar>
             <ToolbarTitle text="Login" />
           </Toolbar>
-          <form>
+          <form style={{ width: '100%' }}>
             {fields.name.element} <br />
             {fields.email.element} <br />
             <FlatButton label="Submit" primary onClick={() => this.handleSubmit()} />

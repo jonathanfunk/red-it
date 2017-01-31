@@ -1,75 +1,94 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './styles.css';
 import TextField from 'material-ui/TextField';
 import { Card } from 'material-ui/Card';
 import { Toolbar, ToolbarTitle } from 'material-ui/Toolbar';
 import FlatButton from 'material-ui/FlatButton';
 import SelectField from 'material-ui/SelectField';
+import Gandalf from '../../lib/gandalf-validator/gandalf';
 import MenuItem from 'material-ui/MenuItem';
 
-const items = [
-  <MenuItem key={1} value={1} primaryText="Never" />,
-  <MenuItem key={2} value={2} primaryText="Every Night" />,
-  <MenuItem key={3} value={3} primaryText="Weeknights" />,
-  <MenuItem key={4} value={4} primaryText="Weekends" />,
-  <MenuItem key={5} value={5} primaryText="Weekly" />,
-];
+class createPost extends Gandalf {
 
-class createPost extends Component {
-  state = {
-    value: null,
-  };
+  // state = {
+  //   value: 1,
+  // };
 
-  handleChange = (event, index, value) => this.setState({value});
+  // handleChange = (event, index, value) => this.setState({value});
+
+  constructor() {
+    const fields = {
+      title: {
+        component: TextField,
+        validators: ['required'],
+        errorPropName: 'errorText',
+        props: {
+          hintText: 'Title',
+        },
+      },
+      description: {
+        component: TextField,
+        validators: ['required'],
+        errorPropName: 'errorText',
+        props: {
+          hintText: 'Description',
+        },
+        debounce: 300,
+      },
+      link: {
+        component: TextField,
+        validators: ['required'],
+        errorPropName: 'errorText',
+        props: {
+          hintText: 'Link',
+        },
+      },
+      tags: {
+        component: TextField,
+        validators: ['required'],
+        errorPropName: 'errorText',
+        props: {
+          hintText: 'Tags',
+        },
+        debounce: 300,
+      },
+    };
+    super(fields);
+  }
+
+  handleSubmit() {
+    const data = this.getCleanFormData();
+    if (!data) return;
+    // Submit to REDUX
+    console.log('goin\' to REDUX', data);
+  }
 
   render() {
+    const fields = this.state.fields;
     return (
       <div className={styles.createPost}>
         <Card style={{ width: '500px' }}>
           <Toolbar>
-            <ToolbarTitle text="Share a new link" />
+            <ToolbarTitle text="Login" />
           </Toolbar>
-          <form>
-            <TextField
-              style={{ width: '100%' }}
-              hintText="Title"
-              errorText="Please provide a title."
-              floatingLabelText="Title"
-              />
-            <TextField
-              style={{ width: '100%' }}
-              hintText="Description"
-              errorText="Please provide a description."
-              floatingLabelText="Description"
-              />
+          <form style={{ width: '100%' }}>
+            {fields.title.element} <br />
+            {fields.description.element} <br />
             <SelectField
-              style={{ width: '100%' }}
+              floatingLabelText="Select a lesson"
               value={this.state.value}
               onChange={this.handleChange}
-              floatingLabelText="Floating Label Text"
               >
-              {items}
+              <MenuItem value={1} primaryText="Never" />
+              <MenuItem value={2} primaryText="Every Night" />
+              <MenuItem value={3} primaryText="Weeknights" />
+              <MenuItem value={4} primaryText="Weekends" />
+              <MenuItem value={5} primaryText="Weekly" />
             </SelectField>
-            <TextField
-              style={{ width: '100%' }}
-              hintText="Link"
-              errorText="You're sharing a link, provide a link."
-              floatingLabelText="Link"
-              />
-            <TextField
-              style={{ 
-                width: '100%',
-                marginBottom: '30px', 
-              }}
-              hintText="Tags"
-              />
-            <FlatButton
-              style={{
-                backgroundColor: 'red',
-                color: 'white',
-              }}
-              label="Submit"
-              />
+            {fields.link.element} <br />
+            {fields.tags.element} <br />
+            <FlatButton label="Submit" primary onClick={() => this.handleSubmit()} />
+            <FlatButton label="Signup" />
           </form>
         </Card>
       </div>
