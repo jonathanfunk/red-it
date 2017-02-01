@@ -1,43 +1,15 @@
-const express = require('express')
-const resolve = require('path').resolve
-const fallback =  require ('express-history-api-fallback')
-const config = require('../config')
-const jsonData = require('./database/mock-data.json')
-const app = express();
+import express from 'express'
+import { resolve } from 'path'
+
+import fallback from 'express-history-api-fallback';
+
+import config from '../config'
+
 const root = resolve(process.cwd(), config.get('STATIC_PATH'));
-const cors = require('cors')
-const bodyParser = require('body-parser')
+const app = express();
 
-const logger = (req, res, next) => {
-  console.log('Logging...');
-  next();
-}
-
-app.use(logger);
-app.use(cors());
-app.use(bodyParser.json());
-
-app.get('/weeks', (req, res) => {
-    res.json(jsonData.weeks);
-})
-
-app.get('/posts', (req, res) => {
-    res.json(jsonData.posts);
-})
-
-app.get('/category', (req, res) => {
-    const { weeks} = jsonData
-    const categories = weeks.map(week => week.categories)
-        .reduce((el, nextEl) => el.concat(nextEl))
-        .filter((category, index, categories) => categories.indexOf(category) === index)
-    res.json(categories)
-})
+app.use(express.static(root));
 
 app.use(fallback('index.html', { root }));
-
-app.use((req, res, next) => {
-  res.status(404).send('Page not found...');
-  next();
-});
 
 module.exports = app;
