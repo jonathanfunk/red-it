@@ -69,7 +69,7 @@ class createPost extends Gandalf {
       <div className={styles.createPost}>
         <Card style={{ width: '500px' }}>
           <Toolbar>
-            <ToolbarTitle text="Login" />
+            <ToolbarTitle text="Create new post" />
           </Toolbar>
           <form style={{ width: '100%' }}>
             {fields.title.element} <br />
