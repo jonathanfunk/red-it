@@ -10,20 +10,23 @@ import styles from './styles.css';
 class Login extends Gandalf {
   constructor() {
     const fields = {
-      name: {
-        component: TextField,
-        validators: ['required'],
-        errorPropName: 'errorText',
-        props: {
-          hintText: 'Name',
-        },
-      },
       email: {
         component: TextField,
         validators: ['required', 'email'],
         errorPropName: 'errorText',
         props: {
           hintText: 'Email',
+          style: { width: 'calc(100% - 20px)' },
+        },
+      },
+      password: {
+        component: TextField,
+        validators: ['required'],
+        errorPropName: 'errorText',
+        props: {
+          hintText: 'Password',
+          type: 'password',
+          style: { width: 'calc(100% - 20px)' },
         },
         debounce: 300,
       },
@@ -48,8 +51,8 @@ class Login extends Gandalf {
             <ToolbarTitle text="Login" />
           </Toolbar>
           <form style={{ width: '100%' }}>
-            {fields.name.element} <br />
             {fields.email.element} <br />
+            {fields.password.element} <br />
             <FlatButton label="Submit" primary onClick={() => this.handleSubmit()} />
             <FlatButton label="Signup" />
           </form>

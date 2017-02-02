@@ -24,6 +24,7 @@ class createPost extends Gandalf {
         errorPropName: 'errorText',
         props: {
           hintText: 'Title',
+          style: { width: 'calc(100% - 20px)' },
         },
       },
       description: {
@@ -32,6 +33,7 @@ class createPost extends Gandalf {
         errorPropName: 'errorText',
         props: {
           hintText: 'Description',
+          style: { width: 'calc(100% - 20px)' },
         },
         debounce: 300,
       },
@@ -41,6 +43,7 @@ class createPost extends Gandalf {
         errorPropName: 'errorText',
         props: {
           hintText: 'Link',
+          style: { width: 'calc(100% - 20px)' },
         },
       },
       tags: {
@@ -49,6 +52,7 @@ class createPost extends Gandalf {
         errorPropName: 'errorText',
         props: {
           hintText: 'Tags',
+          style: { width: 'calc(100% - 20px)' },
         },
         debounce: 300,
       },
