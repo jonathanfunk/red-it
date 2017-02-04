@@ -17,16 +17,16 @@ class PostList extends Component {
     const filter = this.props.filter;
     console.log(posts);
     return posts
-      .filter(post => post.categories.includes(filter))
+      .filter(post => post.category.includes(filter))
       .map(post => (
         <Post
           title={post.title}
-          key={parseInt(post.id, 2)}
+          key={post.postid}
           description={post.description}
           vote={post.votes}
           upVote={this.props.handleClickVote}
-          categories={post.categories}
-          id={post.id}
+          categories={post.category}
+          id={post.postid}
           />
       ));
   }

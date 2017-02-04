@@ -18,6 +18,7 @@ class Categories extends Component {
 
   render() {
     const weeks = this.props.weeks;
+    console.log('This props is...', weeks)
     return (
       <aside className={styles.categories}>
         <Drawer>
@@ -27,9 +28,9 @@ class Categories extends Component {
             />
           {weeks.map((week) => (
             <Week
-              key={parseInt(week.id, 2)} 
+              key={week.weedid} 
               week={week.title}
-              categories={week.categories}
+              categories={week.category}
               filterClick={this.props.handleFilterCategory}
             />
           ))}

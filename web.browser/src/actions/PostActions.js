@@ -6,7 +6,7 @@ export const updatePosts = posts => ({ type: UPDATE_POSTS, payload: posts });
 
 export const fetchPosts = () => {
   return (dispatch) => {
-    getJson('http://localhost:8000/posts').then((response) => {
+    getJson('http://localhost:8000/api/posts/1').then((response) => {
       dispatch(updatePosts(response));
     });
   };
@@ -14,9 +14,9 @@ export const fetchPosts = () => {
 
 //Post manipulation
 export const VOTE_UP = 'VOTE_UP';
-export const upVote = id => ({
+export const upVote = postid => ({
   type: VOTE_UP,
-  payload: { id },
+  payload: { postid },
 });
 
 export const SORT_POPULAR = 'SORT_POPULAR';

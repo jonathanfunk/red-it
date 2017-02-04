@@ -8,26 +8,28 @@ import jwt from 'jsonwebtoken';
 
 export default function APIRoutes(router) {
     router.use(cors({
-        origin: ['http://localhost:8000'],
+        origin: ['http://localhost:3000'],
         credentials: true
     }));
     router.use(bodyParser.json());
     router.use(cookieParser());
     
-    router.use((req, res, next) => {
-        if(!req.cookies[SESSION_COOKIE]){
-            return res.status(403).json({ error: 'Not authoritah' });
-        }
-        const sessionUser = jwt.decode(req.cookies[SESSION_COOKIE])
-        console.log(sessionUser.email)
-        next();
-    })
+    // router.use((req, res, next) => {
+    //     if(!req.cookies[SESSION_COOKIE]){
+    //         return res.status(403).json({ error: 'Not authoritah' });
+    //     }
+    //     const sessionUser = jwt.decode(req.cookies[SESSION_COOKIE])
+    //     console.log(sessionUser.email)
+    //     next();
+    // })
 
     router.get('/posts/1', (req, res) => {
         const postsQuery = `SELECT
                                 posts.postid,
                                 posts.author,
                                 posts.votes,
+                                posts.description,
+                                posts.link,
                             JSON_AGG(category.title) as category
                             FROM
                                 posts
@@ -35,7 +37,7 @@ export default function APIRoutes(router) {
                             GROUP BY
                                 posts.postid
                             ORDER BY
-                                posts.author asc`;
+                                posts.postid asc`;
         database.query(postsQuery, []).then((response) => {
             res.json(response.rows);
         }).catch((error) => {

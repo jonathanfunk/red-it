@@ -11,13 +11,13 @@ export const postReducer = (state = [], action) => {
       return [...state, ...action.payload];
     case VOTE_UP:
       return state.map((post) => {
-        if (post.id !== action.payload.id) return post;
+        if (post.postid !== action.payload.postid) return post;
         return { ...post, votes: post.votes + 1 };
       });
     case SORT_POPULAR:
       return [...state].sort((a, b) => b.votes > a.votes ? 1 : -1);
     case SORT_NEW:
-      return [...state].sort((a, b) => b.id > a.id ? 1 : -1);
+      return [...state].sort((a, b) => b.postid > a.postid ? 1 : -1);
     default:
       return state;
   }
