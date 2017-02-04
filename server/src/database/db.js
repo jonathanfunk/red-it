@@ -10,10 +10,11 @@ const dbconfig = {
 
 const database = new pg.Pool(dbconfig);
 
-database.query('SELECT author FROM posts', []).then(function(result){
-    console.log(result)
-}).catch(function(err) {
-    console.log(err)
-})
+// database.query('SELECT * FROM category',[])
+//     .then(function(result){
+//     console.log(result)
+// }).catch(function(err) {
+//     console.log(err)
+// })
 
 export default database;

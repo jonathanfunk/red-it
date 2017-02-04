@@ -5,8 +5,8 @@ const config = module.exports = nconf.argv()
   'POSTGRES_USER',
   'POSTGRES_PASSWORD',
   'POSTGRES_DBNAME',
-  'APP_SECRET',
-  'STATIC_PATH'
+  'STATIC_PATH',
+  'APP_SECRET'
 ])
 
 .defaults({
