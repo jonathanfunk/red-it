@@ -23,8 +23,20 @@ export default function APIRoutes(router) {
         next();
     })
 
-    router.get('/posts/:categoryid', (req, res) => {
-        database.query('SELECT * FROM posts WHERE "categoryid" = $1', [req.params.categoryid]).then((response) => {
+    router.get('/posts/1', (req, res) => {
+        const postsQuery = `SELECT
+                                posts.postid,
+                                posts.author,
+                                posts.votes,
+                            JSON_AGG(category.title) as category
+                            FROM
+                                posts
+                                inner join category on category.categoryid = posts.categoryid
+                            GROUP BY
+                                posts.postid
+                            ORDER BY
+                                posts.author asc`;
+        database.query(postsQuery, []).then((response) => {
             res.json(response.rows);
         }).catch((error) => {
             res.status(500).json({ error });
@@ -32,19 +44,18 @@ export default function APIRoutes(router) {
     });
 
     router.get('/weeks', (req, res) => {
-        const weeksQuery = `select
+        const weeksQuery = `SELECT
                                 weeks.weekid,
                                 weeks.title,
-                            json_agg(json_build_object('id',category.categoryid, 'title',category.title)) as category
-                            from
+                            JSON_AGG(category.title) as category
+                            FROM
                                 weeks
                                 inner join category on category.weekid = weeks.weekid
-                            group by
+                            GROUP BY
                                 weeks.weekid
-                            order by
+                            ORDER BY
                                 weeks.title asc;`;
         database.query(weeksQuery, []).then((response) => {
-            console.log('Working?')
             res.json(response.rows);
         }).catch((error) => {
             res.status(500).json({ error });
