@@ -5,7 +5,7 @@ import FlatButton from 'material-ui/FlatButton';
 import Chip from 'material-ui/Chip';
 
 
-const Post = ({ postLink, title, description, vote, upVote, categories, id }) => (
+const Post = ({ postLink, title, description, vote, upVote, categories, tags, id }) => (
   <li className={styles.post}>
     <Card style={{ padding: '20px' }}>
       <a href={postLink} target="_blank"><h3 style={{ marginTop: '0' }}>{title}</h3></a>
@@ -16,6 +16,7 @@ const Post = ({ postLink, title, description, vote, upVote, categories, id }) =>
         </FlatButton>
         <ul>
           {categories.map(category => (<li key={category}><Chip>{category}</Chip></li>))}
+          {tags.map(tag => (<li key={tag}><Chip>{tag}</Chip></li>))}
         </ul>
       </div>
     </Card>
@@ -29,6 +30,7 @@ Post.propTypes = {
   vote: PropTypes.number.isRequired,
   upVote: PropTypes.func.isRequired,
   categories: PropTypes.array.isRequired,
+  tags: PropTypes.array.isRequired,
   id: PropTypes.string.isRequired,
 };
 

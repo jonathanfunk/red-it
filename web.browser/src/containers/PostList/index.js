@@ -27,6 +27,7 @@ class PostList extends Component {
           vote={post.votes}
           upVote={this.props.handleClickVote}
           categories={post.category}
+          tags={post.tags}
           id={post.postid}
           />
       ));

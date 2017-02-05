@@ -31,10 +31,13 @@ export default function APIRoutes(router) {
                                 posts.votes,
                                 posts.description,
                                 posts.link,
-                            JSON_AGG(category.title) as category
+                            JSON_AGG(category.title) as category,
+                            JSON_AGG(tags.name) as tags
                             FROM
                                 posts
-                                inner join category on category.categoryid = posts.categoryid
+                                INNER JOIN category ON category.categoryid = posts.categoryid
+                                LEFT OUTER join post_tags ON post_tags.postid = posts.postid
+                                LEFT OUTER join tags ON tags.tagid = post_tags.tagid
                             GROUP BY
                                 posts.postid
                             ORDER BY
