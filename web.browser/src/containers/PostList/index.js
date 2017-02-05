@@ -21,6 +21,7 @@ class PostList extends Component {
       .map(post => (
         <Post
           title={post.title}
+          postLink={post.link}
           key={post.postid}
           description={post.description}
           vote={post.votes}

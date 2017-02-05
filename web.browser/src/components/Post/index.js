@@ -5,10 +5,10 @@ import FlatButton from 'material-ui/FlatButton';
 import Chip from 'material-ui/Chip';
 
 
-const Post = ({ title, description, vote, upVote, categories, id }) => (
+const Post = ({ postLink, title, description, vote, upVote, categories, id }) => (
   <li className={styles.post}>
     <Card style={{ padding: '20px' }}>
-      <h3 style={{ marginTop: '0' }}>{title}</h3>
+      <a href={postLink} target="_blank" style={{ textDecoration: 'none' }}><h3 style={{ marginTop: '0' }}>{title}</h3></a>
       <p>{description}</p>
       <div className={styles.buttons}>
         <FlatButton onClick={() => upVote(id)}>
@@ -23,6 +23,7 @@ const Post = ({ title, description, vote, upVote, categories, id }) => (
 );
 
 Post.propTypes = {
+  postLink: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   vote: PropTypes.number.isRequired,
