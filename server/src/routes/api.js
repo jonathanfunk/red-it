@@ -14,14 +14,14 @@ export default function APIRoutes(router) {
     router.use(bodyParser.json());
     router.use(cookieParser());
     
-    // router.use((req, res, next) => {
-    //     if(!req.cookies[SESSION_COOKIE]){
-    //         return res.status(403).json({ error: 'Not authoritah' });
-    //     }
-    //     const sessionUser = jwt.decode(req.cookies[SESSION_COOKIE])
-    //     console.log(sessionUser.email)
-    //     next();
-    // })
+    router.use((req, res, next) => {
+        if(!req.cookies[SESSION_COOKIE]){
+            return res.status(403).json({ error: 'Not authorized' });
+        }
+        const sessionUser = jwt.decode(req.cookies[SESSION_COOKIE])
+        console.log(sessionUser.email)
+        next();
+    })
 
     router.get('/posts/1', (req, res) => {
         const postsQuery = `SELECT

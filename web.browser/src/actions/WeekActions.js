@@ -4,10 +4,17 @@ import { getJson } from '../lib/fetch-json';
 export const UPDATE_WEEKS = 'UPDATE_WEEKS';
 export const updateWeeks = weeks => ({ type: UPDATE_WEEKS, payload: weeks });
 
-export const fetchWeeks = () => {
-  return (dispatch) => {
-    getJson('http://localhost:8000/api/weeks').then((response) => {
-      dispatch(updateWeeks(response));
-    });
-  };
+const weekRequest = {
+  method: 'GET',
+  credentials: 'include',
+  headers: {
+    'Content-Type': 'application/json;charset=UTF-8',
+  },
 };
+
+export const fetchWeeks = () => dispatch => (
+    getJson('http://localhost:8000/api/weeks', weekRequest).then((response) => {
+      dispatch(updateWeeks(response));
+    })
+);
+
