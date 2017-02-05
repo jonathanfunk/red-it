@@ -1,0 +1,9 @@
+.signup {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    padding: 0px 10px 30px;
+}

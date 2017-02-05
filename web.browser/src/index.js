@@ -13,6 +13,7 @@ import App from './containers/App';
 import MainLayout from './layouts/MainLayout';
 import Welcome from './containers/Welcome';
 import Login from './containers/Login';
+import SignUp from './containers/SignUp';
 import CreatePost from './containers/CreatePost';
 import PostList from './containers/PostList';
 import muiTheme from './styles/mui-theme';
@@ -29,6 +30,7 @@ ReactDOM.render(
           <Route path="/" component={App}>
             <IndexRoute component={Welcome} />
             <Route path="login" component={Login} />
+            <Route path="signup" component={SignUp} />
             <Route path="posts">
               <Route path="new" component={CreatePost} />
               <Route path=":name" component={PostList} />
