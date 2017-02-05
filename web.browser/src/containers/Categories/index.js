@@ -26,9 +26,9 @@ class Categories extends Component {
             title={<span>RED it</span>}
             iconElementLeft={<IconButton><CommunicationImportContacts /></IconButton>}
             />
-          {weeks.map((week) => (
+          {weeks.map((week, i) => (
             <Week
-              key={week.weedid} 
+              key={i} 
               week={week.title}
               categories={week.category}
               filterClick={this.props.handleFilterCategory}
