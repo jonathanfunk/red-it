@@ -8,7 +8,7 @@ import Chip from 'material-ui/Chip';
 const Post = ({ postLink, title, description, vote, upVote, categories, id }) => (
   <li className={styles.post}>
     <Card style={{ padding: '20px' }}>
-      <a href={postLink} target="_blank" style={{ textDecoration: 'none' }}><h3 style={{ marginTop: '0' }}>{title}</h3></a>
+      <a href={postLink} target="_blank"><h3 style={{ marginTop: '0' }}>{title}</h3></a>
       <p>{description}</p>
       <div className={styles.buttons}>
         <FlatButton onClick={() => upVote(id)}>
