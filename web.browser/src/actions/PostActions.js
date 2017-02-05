@@ -3,17 +3,10 @@ import { getJson } from '../lib/fetch-json';
 //Post Load
 export const UPDATE_POSTS = 'UPDATE_POSTS';
 export const updatePosts = posts => ({ type: UPDATE_POSTS, payload: posts });
-const postRequest = {
-  method: 'POST',
-  credentials: 'include',
-  headers: new Headers({
-    'Content-Type': 'application/json;charset=UTF-8'
-  }),
-};
 
 export const fetchPosts = () => {
   return (dispatch) => {
-    getJson('http://localhost:8000/api/posts/1', postRequest).then((response) => {
+    getJson('http://localhost:8000/api/posts/1').then((response) => {
       dispatch(updatePosts(response));
     });
   };

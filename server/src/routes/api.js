@@ -26,6 +26,7 @@ export default function APIRoutes(router) {
     router.get('/posts/1', (req, res) => {
         const postsQuery = `SELECT
                                 posts.postid,
+                                posts.title,
                                 posts.author,
                                 posts.votes,
                                 posts.description,
