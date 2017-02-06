@@ -60,7 +60,7 @@ export default function APIRoutes(router) {
                             GROUP BY
                                 weeks.weekid
                             ORDER BY
-                                weeks.title asc;`;
+                                weeks.weekid asc;`;
         database.query(weeksQuery, []).then((response) => {
             res.json(response.rows);
         }).catch((error) => {

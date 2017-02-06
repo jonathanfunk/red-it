@@ -11,6 +11,7 @@ This is a Reddit clone that allows the users to upvote/sort posts. The objective
 * Redux
 * Node.js
 * Express
+* PostgreSQL
 * Javascript/JSX
 * Command Line Interface
 * Git/Github

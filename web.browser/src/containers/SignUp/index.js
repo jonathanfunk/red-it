@@ -59,14 +59,14 @@ class SignUp extends Gandalf {
     // Submit to REDUX
     console.log({ 'users': data });
 
-    // const params = { method: 'POST', credentials: 'include' };
-    // const headers = { 'Content-Type': 'application/json' };
-    // const body = { "users": data };
-    // fetch('http://localhost:8000/auth/register', Object.assign(params, headers, body)).then(function (response) {
-    //   return response.json()
-    // }).then(function (body) {
-    //   console.log(body);
-    // });
+    const params = { method: 'POST', credentials: 'include' };
+    const headers = { 'Content-Type': 'application/json' };
+    //const body = { data };
+    fetch('http://localhost:8000/auth/register', Object.assign(params, headers, data)).then(function (response) {
+      return response.json()
+    }).then(function (body) {
+      console.log(body);
+    });
   }
 
   render() {
