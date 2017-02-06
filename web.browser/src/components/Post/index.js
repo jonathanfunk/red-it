@@ -15,8 +15,8 @@ const Post = ({ postLink, title, description, vote, upVote, categories, tags, id
           ▴ Vote {vote}
         </FlatButton>
         <ul>
-          {categories.map(category => (
-            <li key={category}>
+          {categories.map((category, i) => (
+            <li key={i}>
               <Chip>{category}</Chip>
             </li>
           ))}
@@ -39,7 +39,7 @@ Post.propTypes = {
   upVote: PropTypes.func.isRequired,
   categories: PropTypes.array.isRequired,
   tags: PropTypes.array.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default Post;

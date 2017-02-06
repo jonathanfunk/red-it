@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import styles from './styles.css';
 import TextField from 'material-ui/TextField';
 import { Card } from 'material-ui/Card';
