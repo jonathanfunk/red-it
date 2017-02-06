@@ -15,8 +15,16 @@ const Post = ({ postLink, title, description, vote, upVote, categories, tags, id
           ▴ Vote {vote}
         </FlatButton>
         <ul>
-          {categories.map(category => (<li key={category}><Chip>{category}</Chip></li>))}
-          {tags.map(tag => (<li key={tag}><Chip>{tag}</Chip></li>))}
+          {categories.map(category => (
+            <li key={category}>
+              <Chip>{category}</Chip>
+            </li>
+          ))}
+          {tags.map(tag => (
+            <li key={tag}>
+              <Chip>{tag}</Chip>
+            </li>
+          ))}
         </ul>
       </div>
     </Card>

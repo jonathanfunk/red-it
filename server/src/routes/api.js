@@ -68,6 +68,18 @@ export default function APIRoutes(router) {
         });
     });
 
+    router.get('/categories', (req, res) => {
+        const categoryQuery = `SELECT
+                                *
+                            FROM
+                                category`;
+        database.query(categoryQuery, []).then((response) => {
+            res.json(response.rows);
+        }).catch((error) => {
+            res.status(500).json({ error });
+        });
+    });
+
     router.post('/posts', (req, res) => {
         const { title, date, description, link, author, votes, userid, categoryid } = req.body.post;
         database.query('INSERT INTO posts VALUES($1, $2, $3, $4, $5, $6, $7, $8)', 

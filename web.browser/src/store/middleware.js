@@ -1,4 +1,5 @@
 export const actionLogger = theStore => next => (action) => {
+  console.log('h1')
   let result;
   console.info('DISPATCHING', action);
   try {

@@ -5,6 +5,7 @@ import { Toolbar, ToolbarTitle } from 'material-ui/Toolbar';
 import FlatButton from 'material-ui/FlatButton';
 import Gandalf from '../../lib/gandalf-validator/gandalf';
 import styles from './styles.css';
+// import { postJson } from '../../lib/fetch-json/index';
 
 
 class SignUp extends Gandalf {
@@ -56,7 +57,16 @@ class SignUp extends Gandalf {
     const data = this.getCleanFormData();
     if (!data) return;
     // Submit to REDUX
-    console.log('goin\' to REDUX', data);
+    console.log({ 'users': data });
+
+    // const params = { method: 'POST', credentials: 'include' };
+    // const headers = { 'Content-Type': 'application/json' };
+    // const body = { "users": data };
+    // fetch('http://localhost:8000/auth/register', Object.assign(params, headers, body)).then(function (response) {
+    //   return response.json()
+    // }).then(function (body) {
+    //   console.log(body);
+    // });
   }
 
   render() {
@@ -66,7 +76,7 @@ class SignUp extends Gandalf {
       <div className={styles.signup}>
         <Card style={{ width: '500px' }}>
           <Toolbar>
-            <ToolbarTitle text="Login" />
+            <ToolbarTitle text="Sign Up" />
           </Toolbar>
           <form style={{ width: '100%' }}>
             {fields.fname.element} <br />

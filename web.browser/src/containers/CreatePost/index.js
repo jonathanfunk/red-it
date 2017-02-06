@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import styles from './styles.css';
 import TextField from 'material-ui/TextField';
 import { Card } from 'material-ui/Card';
 import { Toolbar, ToolbarTitle } from 'material-ui/Toolbar';
 import FlatButton from 'material-ui/FlatButton';
+import { connect } from 'react-redux';
 import SelectField from 'material-ui/SelectField';
 import Gandalf from '../../lib/gandalf-validator/gandalf';
 import MenuItem from 'material-ui/MenuItem';
+import { fetchCategories } from './../../actions/CreatePostActions';
 
 class createPost extends Gandalf {
 
-  // state = {
-  //   value: 1,
-  // };
-
-  // handleChange = (event, index, value) => this.setState({value});
+  componentWillMount() {
+    this.props.fetchCategories();
+  }
 
   constructor() {
     const fields = {
@@ -68,6 +68,8 @@ class createPost extends Gandalf {
   }
 
   render() {
+    const categories = this.props.categories;
+    console.log('This create post props is...', categories)
     const fields = this.state.fields;
     return (
       <div className={styles.createPost}>
@@ -100,4 +102,14 @@ class createPost extends Gandalf {
   }
 }
 
-export default createPost;
+const mapStateToProps = state => ({
+  categories: state.categories,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchCategories: () => {
+    dispatch(fetchCategories());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(createPost);
